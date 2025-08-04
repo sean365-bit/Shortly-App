@@ -1,0 +1,26 @@
+@use "../styles/main" as *;
+
+.stats {
+  //   border: 3px solid green;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 100px; //
+}
+
+.stats_heading {
+  font-weight: 700;
+  font-size: 2.3rem;
+  text-align: center;
+  color: $very-dark-violet;
+
+  margin-bottom: 15px;
+}
+
+.stats_prgh {
+  text-align: center;
+  color: $grayish-violet;
+}
