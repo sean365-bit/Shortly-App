@@ -1,0 +1,46 @@
+@use "../styles/main" as *;
+
+footer {
+  background: $very-dark-violet;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.footer_logo {
+  margin-top: 35px;
+}
+
+.footer_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  .block_heading {
+    color: white;
+    margin-bottom: 15px;
+  }
+
+  .block_content {
+    color: $grayish-violet;
+  }
+}
+
+.footer_socials {
+  display: flex;
+  gap: 25px;
+
+  margin-bottom: 30px;
+
+  img {
+    height: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

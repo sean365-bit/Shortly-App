@@ -51,4 +51,8 @@ input::placeholder {
   font-weight: 700;
 
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

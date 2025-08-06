@@ -37,4 +37,8 @@ main {
   border-radius: 35px;
 
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
