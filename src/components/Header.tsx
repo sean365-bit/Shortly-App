@@ -1,22 +1,67 @@
+import { useState } from "react";
 import "./Header.scss";
 import appLogo from "../assets/logo.svg";
 
 function Header() {
-  return (
-    <header className="header">
-      <img src={appLogo} alt="logo" className="app_logo" />
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 640 640"
-        className="hamburguer"
-      >
-        <path
-          fill="#9e9aa7"
-          d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
-        />
-      </svg>
-    </header>
+  const toggleMenu = () => {
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      setIsMenuOpen(true);
+    }
+  };
+
+  const closeMenu = () => {
+    setIsClosing(true);
+
+    setTimeout(() => {
+      setIsMenuOpen(false);
+      setIsClosing(false);
+    }, 400);
+  };
+
+  return (
+    <>
+      <header className="header">
+        <img src={appLogo} alt="logo" className="app_logo" />
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+          className="hamburger"
+          onClick={toggleMenu}
+          role="button"
+          aria-label="Toggle navigation menu"
+        >
+          <path
+            fill="#9e9aa7"
+            d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
+          />
+        </svg>
+      </header>
+
+      {isMenuOpen && (
+        <div
+          className={`mobile_menu ${
+            isClosing ? "scale-out-center" : "scale-in-center"
+          }`}
+        >
+          <p>Features</p>
+          <p>Pricing</p>
+          <p>Resources</p>
+
+          <div className="line_break"></div>
+
+          <p>Login</p>
+          <button className="get_button" onClick={closeMenu}>
+            Sign Up
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 

@@ -1,11 +1,16 @@
 @use "../styles/main" as *;
 
-main {
+main,
+.main_div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+.main_div {
+  margin-bottom: 50px;
 }
 
 .main_logo {

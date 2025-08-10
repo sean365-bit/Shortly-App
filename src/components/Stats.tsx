@@ -43,7 +43,7 @@ function Stats() {
           </div>
         </div>
 
-        <div className="stats_points last_one">
+        <div className="stats_points">
           <div className="circle_logo">
             <img src={customizable} alt="logo" />
           </div>
