@@ -22,3 +22,10 @@ body {
   font-style: normal;
   font-size: 18px;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,6 +1,7 @@
 @use "../styles/main" as *;
 
 main,
+.body_info,
 .main_div {
   display: flex;
   flex-direction: column;
@@ -10,19 +11,20 @@ main,
 }
 
 .main_div {
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .main_logo {
-  height: 200px;
-  width: auto;
+  max-width: 80%;
+  height: auto;
 }
 
 .body_tittle {
   font-weight: 700;
-  font-size: 2.3rem;
+  font-size: 3rem;
   text-align: center;
   color: $very-dark-violet;
+  line-height: 70px;
 }
 
 .body_prgh {
@@ -31,7 +33,7 @@ main,
 }
 
 .get_button {
-  height: 60px;
+  height: 50px;
   width: 200px;
 
   background: $cyan;
@@ -45,5 +47,45 @@ main,
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.add_space {
+  display: none;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  main {
+    width: 80%;
+  }
+
+  .add_space {
+    display: block;
+  }
+
+  .main_div {
+    flex-direction: row-reverse;
+  }
+
+  .main_logo {
+    max-width: 50%;
+    height: auto;
+  }
+
+  .body_info {
+    width: 60%;
+    height: 300px;
+
+    align-items: flex-start;
+  }
+
+  .body_tittle {
+    font-size: 4rem;
+  }
+
+  .body_tittle,
+  .body_prgh {
+    text-align: left;
   }
 }

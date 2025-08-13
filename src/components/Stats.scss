@@ -1,16 +1,19 @@
 @use "../styles/main" as *;
 
 .stats {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   background: #f0f1f6;
+
+  position: relative;
 }
 
 .stats_heading {
-  margin-top: 50px;
+  margin-top: 150px;
   font-weight: 700;
   font-size: 2.3rem;
   text-align: center;
@@ -48,7 +51,7 @@
 
 .stats_points {
   height: 300px;
-  width: 320px;
+  width: 345px;
   padding: 10px;
 
   border-radius: 5px;
@@ -102,7 +105,7 @@
   text-align: center;
 }
 
-.boost_section {
+.boost_links_box {
   height: 300px;
   width: 100%;
 
@@ -121,6 +124,64 @@
   p {
     color: white;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+.add_space {
+  display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  .stats {
+    width: 100%;
+  }
+
+  .boost_links_box {
+    background-image: url("../assets/bg-boost-desktop.svg");
+
+    p {
+      font-size: 3rem;
+    }
+  }
+
+  .add_space {
+    display: block;
+  }
+
+  .stats_container {
+    width: 80%;
+    flex-direction: row;
+    gap: 30px;
+
+    margin-bottom: 80px;
+  }
+
+  .stats_points {
+    height: 340px;
+    flex: 1;
+    padding: 20px;
+  }
+
+  .circle_logo {
+    left: 30%;
+  }
+
+  .stats_header,
+  .stats_body {
+    text-align: left;
+  }
+
+  .stats_two {
+    margin-top: 50px;
+  }
+
+  .stats_three {
+    margin-top: 100px;
+  }
+
+  .line {
+    height: 8px;
+    width: 100%;
   }
 }

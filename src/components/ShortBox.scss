@@ -3,8 +3,13 @@
 .short_box {
   width: 350px;
   height: 180px;
-  border-radius: 5px;
+  position: absolute;
 
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 5px;
   margin-bottom: 50px;
 
   background-image: url("../assets/bg-shorten-mobile.svg");
@@ -54,5 +59,25 @@ input::placeholder {
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .short_box {
+    width: 80%;
+    height: 130px;
+    background-image: url("../assets/bg-shorten-desktop.svg");
+  }
+
+  form {
+    flex-direction: row;
+  }
+
+  .input_field {
+    width: 65%;
+  }
+
+  .input_button {
+    width: 20%;
   }
 }

@@ -1,15 +1,17 @@
 import "./Stats.scss";
-import recognition from "../assets/icon-brand-recognition.svg";
-import detailed from "../assets/icon-detailed-records.svg";
-import customizable from "../assets/icon-fully-customizable.svg";
+import ShortBox from "./ShortBox";
+import iconRecognition from "../assets/icon-brand-recognition.svg";
+import iconDetailed from "../assets/icon-detailed-records.svg";
+import iconCustomizable from "../assets/icon-fully-customizable.svg";
 
 function Stats() {
   return (
     <section className="stats">
+      <ShortBox />
       <p className="stats_heading">Advanced Statistics</p>
       <p className="stats_prgh">
-        Track how your links are performing across the web tir our advanced
-        statistics dashboard.
+        Track how your links are performing across the web with
+        <br className="add_space" /> our advanced statistics dashboard.
       </p>
 
       <div className="stats_container">
@@ -17,7 +19,7 @@ function Stats() {
 
         <div className="stats_points">
           <div className="circle_logo">
-            <img src={recognition} alt="logo" />
+            <img src={iconRecognition} alt="logo" />
           </div>
           <div className="holder">
             <p className="stats_header">Brand Recognition</p>
@@ -29,9 +31,9 @@ function Stats() {
           </div>
         </div>
 
-        <div className="stats_points">
+        <div className="stats_points stats_two">
           <div className="circle_logo">
-            <img src={detailed} alt="logo" />
+            <img src={iconDetailed} alt="logo" />
           </div>
           <div className="holder">
             <p className="stats_header">Detailed Records</p>
@@ -43,9 +45,9 @@ function Stats() {
           </div>
         </div>
 
-        <div className="stats_points">
+        <div className="stats_points stats_three">
           <div className="circle_logo">
-            <img src={customizable} alt="logo" />
+            <img src={iconCustomizable} alt="logo" />
           </div>
 
           <div className="holder">
@@ -58,7 +60,7 @@ function Stats() {
         </div>
       </div>
 
-      <div className="boost_section">
+      <div className="boost_links_box">
         <p>Boost your links today</p>
 
         <button className="get_button">Get Started</button>
