@@ -1,11 +1,16 @@
-import "./Body.scss";
+import "../styles/Body.scss";
 import mainLogo from "../assets/illustration-working.svg";
 
 function Body() {
   return (
     <main>
       <div className="main_div">
-        <img src={mainLogo} alt="logo" className="main_logo" />
+        <img
+          src={mainLogo}
+          alt="logo"
+          className="illustration_working_logo"
+          loading="lazy"
+        />
 
         <div className="body_info">
           <p className="body_tittle">

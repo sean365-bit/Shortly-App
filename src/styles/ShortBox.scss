@@ -1,6 +1,6 @@
 @use "../styles/main" as *;
 
-.short_box {
+.short_link_box {
   width: 350px;
   height: 180px;
   position: absolute;
@@ -63,7 +63,7 @@ input::placeholder {
 }
 
 @media only screen and (min-width: 768px) {
-  .short_box {
+  .short_link_box {
     width: 80%;
     height: 130px;
     background-image: url("../assets/bg-shorten-desktop.svg");

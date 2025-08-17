@@ -14,7 +14,7 @@ main,
   margin-bottom: 150px;
 }
 
-.main_logo {
+.illustration_working_logo {
   max-width: 80%;
   height: auto;
 }
@@ -65,17 +65,19 @@ main,
   }
 
   .main_div {
+    width: 100%;
     flex-direction: row-reverse;
+    gap: 0;
   }
 
-  .main_logo {
+  .illustration_working_logo {
     max-width: 50%;
     height: auto;
   }
 
   .body_info {
-    width: 60%;
-    height: 300px;
+    width: 50%;
+    height: auto;
 
     align-items: flex-start;
   }

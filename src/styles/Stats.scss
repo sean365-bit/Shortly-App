@@ -28,7 +28,6 @@
   margin-bottom: 120px;
 }
 
-/* */
 .stats_container {
   display: flex;
   flex-direction: column;
@@ -76,8 +75,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
 
   border-radius: 50%;
   background: $dark-Violet;
@@ -86,8 +85,14 @@
   align-items: center;
   justify-content: center;
 
-  img {
-    height: 65px;
+  .stats_icon {
+    height: 40px;
+    width: 40px;
+  }
+
+  .stats_icon_custom {
+    height: 48px;
+    width: 48px;
   }
 }
 
