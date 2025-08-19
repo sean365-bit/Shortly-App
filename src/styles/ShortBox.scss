@@ -42,6 +42,43 @@ form {
   font-weight: 500;
   padding-left: 15px;
   border: none;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &.input_error {
+    border-color: $red;
+    background-color: #ffecec;
+    animation: shake 0.3s ease;
+  }
+}
+
+.error_message {
+  position: absolute;
+  bottom: -4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: $red;
+  font-size: 1rem;
+}
+
+/* 🔄 Shake animation */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 input::placeholder {
@@ -56,11 +93,15 @@ input::placeholder {
   font-weight: 700;
 
   border: none;
+  transition: 0.5s;
 
   &:hover {
     cursor: pointer;
+    color: $dark-Violet;
   }
 }
+
+/* */
 
 @media only screen and (min-width: 768px) {
   .short_link_box {
