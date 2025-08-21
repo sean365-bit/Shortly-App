@@ -1,11 +1,48 @@
+import { useState } from "react";
 import "../styles/Stats.scss";
 import SvgIcon from "./SvgIcon";
 import ShortBox from "./ShortBox";
 
-function Stats() {
+type LinkItem = {
+  original: string;
+  shortened: string;
+};
+
+const Stats: React.FC = () => {
+  const [allLinks, setAllLinks] = useState<LinkItem[]>([]);
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const handleNewLink = (original: string, shortened: string) => {
+    setAllLinks((prev) => [{ original, shortened }, ...prev]);
+  };
+
+  const handleCopy = (link: string, index: number) => {
+    navigator.clipboard.writeText(link);
+    setCopiedIndex(index);
+
+    setTimeout(() => setCopiedIndex(null), 3000);
+  };
+
   return (
     <section className="stats">
-      <ShortBox />
+      <div className="shortened_container">
+        <ShortBox onLinkShortened={handleNewLink} />
+
+        {allLinks.map((link, i) => (
+          <div key={i} className="shortened_link">
+            <p className="original_url">{link.original}</p>
+            <div className="divider"></div>
+            <p className="shortened_url">{link.shortened}</p>
+            <button
+              className={`get_button ${copiedIndex === i ? "copied" : ""}`}
+              onClick={() => handleCopy(link.shortened, i)}
+            >
+              {copiedIndex === i ? "Copied" : "Copy"}
+            </button>
+          </div>
+        ))}
+      </div>
+
       <p className="stats_heading">Advanced Statistics</p>
       <p className="stats_prgh">
         Track how your links are performing across the web with
@@ -80,6 +117,6 @@ function Stats() {
       </div>
     </section>
   );
-}
+};
 
 export default Stats;

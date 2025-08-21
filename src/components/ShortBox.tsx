@@ -6,6 +6,10 @@ type ShortenResponse = {
   error?: string;
 };
 
+type ShortBoxProps = {
+  onLinkShortened: (original: string, shortened: string) => void;
+};
+
 async function fetchShortenedLink(url: string): Promise<string> {
   const apiUrl =
     "https://corsproxy.io/?url=" + "https://cleanuri.com/api/v1/shorten";
@@ -26,10 +30,9 @@ async function fetchShortenedLink(url: string): Promise<string> {
   return data.result_url || "Error shortening URL";
 }
 
-const ShortBox: React.FC = () => {
+const ShortBox: React.FC<ShortBoxProps> = ({ onLinkShortened }) => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
-  const [links, setLinks] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
   const isValidUrl = (string: string): boolean => {
@@ -59,7 +62,9 @@ const ShortBox: React.FC = () => {
     try {
       setLoading(true);
       const shortened = await fetchShortenedLink(url);
-      setLinks((prev) => [shortened, ...prev]);
+
+      onLinkShortened(url, shortened);
+
       setUrl("");
     } catch (err) {
       setError("Failed to shorten the URL. Please try again.");
@@ -90,19 +95,6 @@ const ShortBox: React.FC = () => {
 
         {error && <p className="error_message">{error}</p>}
       </form>
-
-      {links.length > 0 && (
-        <div className="shortened_links">
-          {links.map((link, index) => (
-            <p key={index} className="shortened_url">
-              Shortened URL:{" "}
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                {link}
-              </a>
-            </p>
-          ))}
-        </div>
-      )}
     </section>
   );
 };
